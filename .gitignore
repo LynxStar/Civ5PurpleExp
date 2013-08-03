@@ -13,3 +13,8 @@
 *.a
 
 [BB]uildTemp
+[BB]uildOUtput
+
+# User files
+*.vcproj.*
+*.suo
