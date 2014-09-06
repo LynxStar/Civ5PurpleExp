@@ -3967,6 +3967,7 @@ bool CvUnit::isSetUpForRangedAttack() const
 //	--------------------------------------------------------------------------------
 void CvUnit::setSetUpForRangedAttack(bool bValue)
 {
+	
 	VALIDATE_OBJECT
 	if(isSetUpForRangedAttack() != bValue)
 	{
@@ -3974,7 +3975,13 @@ void CvUnit::setSetUpForRangedAttack(bool bValue)
 
 		if(bValue)
 		{
-			changeMoves(-GC.getMOVE_DENOMINATOR());
+
+			int setupModifier = 1;
+
+			if (getUnitInfo().GetDomainType() == DOMAIN_SEA)
+				setupModifier = 4;
+
+			changeMoves(-GC.getMOVE_DENOMINATOR() * setupModifier);
 		}
 	}
 }

@@ -15,7 +15,10 @@
 // {C3B2B6B3-439C-480b-8536-1CF39FCFC682}
 // {83F34FF0-3D60-43e7-AEDB-82C79867EE3F}
 static const GUID CIV5_XP2_DLL_GUID = 
-{ 0x83f34ff0, 0x3d60, 0x43e7, { 0xae, 0xdb, 0x82, 0xc7, 0x98, 0x67, 0xee, 0x3f } };
+{ 0x23ee157c, 0x738c, 0x4d8b, { 0x9b, 0x18, 0x19, 0x74, 0xad, 0x13, 0x49, 0xdf } };
+// {23EE157C-738C-4D8B-9B18-1974AD1349DF}
+
+
 
 static const char* CIV5_XP2_DLL_VERSION = "1.0.0";
 //------------------------------------------------------------------------------
