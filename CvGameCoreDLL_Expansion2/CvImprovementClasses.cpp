@@ -84,6 +84,7 @@ CvImprovementEntry::CvImprovementEntry(void):
 	m_iImprovementPillage(NO_IMPROVEMENT),
 	m_iImprovementUpgrade(NO_IMPROVEMENT),
 	m_bHillsMakesValid(false),
+	m_bMakesSeaPassable(false),
 	m_bFreshWaterMakesValid(false),
 	m_bRiverSideMakesValid(false),
 	m_bNoFreshWater(false),
@@ -194,6 +195,7 @@ bool CvImprovementEntry::CacheResults(Database::Results& kResults, CvDatabaseUti
 	m_iRequiresXAdjacentLand = kResults.GetInt("RequiresXAdjacentLand");
 	m_iCultureAdjacentSameType = kResults.GetInt("CultureAdjacentSameType");
 	m_bHillsMakesValid = kResults.GetBool("HillsMakesValid");
+	m_bMakesSeaPassable = kResults.GetBool("MakesSeaPassable");
 	m_bFreshWaterMakesValid = kResults.GetBool("FreshWaterMakesValid");
 	m_bRiverSideMakesValid = kResults.GetBool("RiverSideMakesValid");
 	m_bNoFreshWater = kResults.GetBool("NoFreshWater");
@@ -603,6 +605,12 @@ void CvImprovementEntry::SetImprovementUpgrade(int i)
 bool CvImprovementEntry::IsHillsMakesValid() const
 {
 	return m_bHillsMakesValid;
+}
+
+///Canal improvement makes plot passable
+bool CvImprovementEntry::IsMakesSeaPassable() const
+{
+	return m_bMakesSeaPassable;
 }
 
 /// Requires fresh water to build

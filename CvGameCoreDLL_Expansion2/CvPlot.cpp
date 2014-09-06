@@ -3420,6 +3420,16 @@ bool CvPlot::isFriendlyCity(const CvUnit& kUnit, bool) const
 	return false;
 }
 
+bool CvPlot::isPlotWithCanal() const
+{
+
+	ImprovementTypes eImprovement = getImprovementType();
+	CvImprovementEntry* pkImprovementInfo = GC.getImprovementInfo(eImprovement);
+
+	return pkImprovementInfo != NULL && pkImprovementInfo->IsMakesSeaPassable();
+
+}
+
 //	--------------------------------------------------------------------------------
 /// Is this a plot that's friendly to our team? (owned by us or someone we have Open Borders with)
 bool CvPlot::IsFriendlyTerritory(PlayerTypes ePlayer) const
@@ -4053,7 +4063,7 @@ bool CvPlot::isValidDomainForLocation(const CvUnit& unit) const
 		return true;
 	}
 
-	return isCity();
+	return (unit.getDomainType() == DOMAIN_SEA) ? isPlotWithCanal() : isCity();
 }
 
 

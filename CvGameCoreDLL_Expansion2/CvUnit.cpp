@@ -2231,7 +2231,10 @@ bool CvUnit::canEnterTerrain(const CvPlot& enterPlot, byte bMoveFlags) const
 	case DOMAIN_SEA:
 		if(!enterPlot.isWater() && !canMoveAllTerrain())
 		{
-			if(!enterPlot.isFriendlyCity(*this, true) && !enterPlot.isEnemyCity(*this))
+
+			bool canEnter = enterPlot.isFriendlyCity(*this, true) || enterPlot.isPlotWithCanal();
+
+			if(!canEnter && !enterPlot.isEnemyCity(*this))
 			{
 				return false;
 			}
@@ -2961,7 +2964,10 @@ bool CvUnit::jumpToNearestValidPlot()
 
 						if((getDomainType() != DOMAIN_AIR) || pLoopPlot->isFriendlyCity(*this, true))
 						{
-							if(getDomainType() != DOMAIN_SEA || (pLoopPlot->isFriendlyCity(*this, true) && pLoopPlot->isCoastalLand()) || pLoopPlot->isWater())
+
+							bool canEnter = pLoopPlot->isFriendlyCity(*this, true) || pLoopPlot->isPlotWithCanal();
+
+							if(getDomainType() != DOMAIN_SEA || (canEnter && pLoopPlot->isCoastalLand()) || pLoopPlot->isWater())
 							{
 								if(pLoopPlot->isRevealed(getTeam()))
 								{
@@ -19920,7 +19926,7 @@ bool CvUnit::PlotValid(CvPlot* pPlot) const
 		{
 			return true;
 		}
-		else if(pPlot->isFriendlyCity(*this, true) && pPlot->isCoastalLand())
+		else if((pPlot->isFriendlyCity(*this, true) || pPlot->isPlotWithCanal()) && pPlot->isCoastalLand())
 		{
 			return true;
 		}
