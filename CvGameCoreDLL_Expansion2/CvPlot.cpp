@@ -2785,13 +2785,13 @@ int CvPlot::defenseModifier(TeamTypes eDefender, bool, bool bHelp) const
 
 		bool usableFort = eDefender != NO_TEAM && (getTeam() == NO_TEAM || GET_TEAM(eDefender).isFriendlyTerritory(getTeam()));
 
-		if(isPlotWithCanal() || usableFort)
+		if(HasCanal() || usableFort)
 		{
 			CvImprovementEntry* pkImprovement = GC.getImprovementInfo(eImprovement);
 			if (pkImprovement)
 			{
 
-				if (isPlotWithCanal() && ContainsSeaUnit())
+				if (HasCanal() && ContainsSeaUnit())
 					iModifier = pkImprovement->GetDefenseModifier() * 2;
 				else
 					iModifier += pkImprovement->GetDefenseModifier();
@@ -3429,7 +3429,7 @@ bool CvPlot::isFriendlyCity(const CvUnit& kUnit, bool) const
 	return false;
 }
 
-bool CvPlot::isPlotWithCanal() const
+bool CvPlot::HasCanal() const
 {
 
 	ImprovementTypes eImprovement = getImprovementType();
@@ -4096,7 +4096,7 @@ bool CvPlot::isValidDomainForLocation(const CvUnit& unit) const
 		return true;
 	}
 
-	return (unit.getDomainType() == DOMAIN_SEA) ? isPlotWithCanal() : isCity();
+	return (unit.getDomainType() == DOMAIN_SEA) ? HasCanal() : isCity();
 }
 
 
@@ -4106,7 +4106,7 @@ bool CvPlot::isValidDomainForAction(const CvUnit& unit) const
 	switch(unit.getDomainType())
 	{
 	case DOMAIN_SEA:
-		return (isWater() || unit.canMoveAllTerrain());
+		return isWater() || unit.canMoveAllTerrain() || HasCanal();
 		break;
 
 	case DOMAIN_AIR:

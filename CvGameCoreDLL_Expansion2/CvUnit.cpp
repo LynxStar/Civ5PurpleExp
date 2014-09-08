@@ -2232,7 +2232,7 @@ bool CvUnit::canEnterTerrain(const CvPlot& enterPlot, byte bMoveFlags) const
 		if(!enterPlot.isWater() && !canMoveAllTerrain())
 		{
 
-			bool canEnter = enterPlot.isFriendlyCity(*this, true) || enterPlot.isPlotWithCanal();
+			bool canEnter = enterPlot.isFriendlyCity(*this, true) || enterPlot.HasCanal();
 
 			if(!canEnter && !enterPlot.isEnemyCity(*this))
 			{
@@ -2965,7 +2965,7 @@ bool CvUnit::jumpToNearestValidPlot()
 						if((getDomainType() != DOMAIN_AIR) || pLoopPlot->isFriendlyCity(*this, true))
 						{
 
-							bool canEnter = pLoopPlot->isFriendlyCity(*this, true) || pLoopPlot->isPlotWithCanal();
+							bool canEnter = pLoopPlot->isFriendlyCity(*this, true) || pLoopPlot->HasCanal();
 
 							if(getDomainType() != DOMAIN_SEA || (canEnter && pLoopPlot->isCoastalLand()) || pLoopPlot->isWater())
 							{
@@ -15935,6 +15935,9 @@ bool CvUnit::isOutOfAttacks() const
 		return false;
 	}
 
+	if (plot()->HasCanal() && getDomainType() == DOMAIN_SEA)
+		return true;//Naval units cannot attack while inside of a canal
+
 	return m_iAttacksMade >= m_iNumAttacks;
 }
 
@@ -19926,7 +19929,7 @@ bool CvUnit::PlotValid(CvPlot* pPlot) const
 		{
 			return true;
 		}
-		else if((pPlot->isFriendlyCity(*this, true) || pPlot->isPlotWithCanal()) && pPlot->isCoastalLand())
+		else if((pPlot->isFriendlyCity(*this, true) || pPlot->HasCanal()) && pPlot->isCoastalLand())
 		{
 			return true;
 		}

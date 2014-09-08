@@ -105,6 +105,8 @@ void CvLuaPlot::PushMethods(lua_State* L, int t)
 
 	Method(IsFriendlyTerritory);
 
+	Method(HasCanal);
+
 	Method(IsCity);
 	Method(IsFriendlyCity);
 	Method(IsEnemyCity);
@@ -759,6 +761,19 @@ int CvLuaPlot::lIsFriendlyTerritory(lua_State* L)
 	const bool bResult = pkPlot->IsFriendlyTerritory(ePlayer);
 	lua_pushboolean(L, bResult);
 	return 1;
+}
+
+//------------------------------------------------------------------------------
+//bool HasCanal()
+int CvLuaPlot::lHasCanal(lua_State* L)
+{
+
+	CvPlot* pkPlot = GetInstance(L);
+
+	const bool bResult = pkPlot->HasCanal();
+	lua_pushboolean(L, bResult);
+	return 1;
+
 }
 
 //------------------------------------------------------------------------------

@@ -122,6 +122,8 @@ protected:
 
 	static int lIsFriendlyTerritory(lua_State* L);
 
+	static int lHasCanal(lua_State* L);
+
 	static int lIsCity(lua_State* L);
 	static int lIsFriendlyCity(lua_State* L);
 	static int lIsEnemyCity(lua_State* L);
