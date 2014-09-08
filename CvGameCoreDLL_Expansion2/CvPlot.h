@@ -277,6 +277,7 @@ public:
 	bool isFighting() const;
 	bool isUnitFighting() const;
 	bool isCityFighting() const;
+	bool ContainsSeaUnit() const;
 
 	bool canHaveFeature(FeatureTypes eFeature) const;
 

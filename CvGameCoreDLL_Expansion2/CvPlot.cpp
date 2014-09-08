@@ -2782,11 +2782,20 @@ int CvPlot::defenseModifier(TeamTypes eDefender, bool, bool bHelp) const
 
 	if(eImprovement != NO_IMPROVEMENT && !IsImprovementPillaged())
 	{
-		if(eDefender != NO_TEAM && (getTeam() == NO_TEAM || GET_TEAM(eDefender).isFriendlyTerritory(getTeam())))
+
+		bool usableFort = eDefender != NO_TEAM && (getTeam() == NO_TEAM || GET_TEAM(eDefender).isFriendlyTerritory(getTeam()));
+
+		if(isPlotWithCanal() || usableFort)
 		{
 			CvImprovementEntry* pkImprovement = GC.getImprovementInfo(eImprovement);
 			if (pkImprovement)
-				iModifier += pkImprovement->GetDefenseModifier();
+			{
+
+				if (isPlotWithCanal() && ContainsSeaUnit())
+					iModifier = pkImprovement->GetDefenseModifier() * 2;
+				else
+					iModifier += pkImprovement->GetDefenseModifier();
+			}
 		}
 	}
 
@@ -3887,6 +3896,30 @@ bool CvPlot::isUnitFighting() const
 	}
 
 	return false;
+}
+
+bool CvPlot::ContainsSeaUnit() const
+{
+
+	const IDInfo* pUnitNode = m_units.head();
+	if(pUnitNode)
+	{
+		do
+		{
+			const CvUnit* pLoopUnit = GetPlayerUnit(*pUnitNode);
+			pUnitNode = m_units.next(pUnitNode);
+
+			if(pLoopUnit)
+			{
+				if (pLoopUnit->getDomainType() == DOMAIN_SEA)
+					return true;
+			}
+		}
+		while(pUnitNode != NULL);
+	}
+
+	return false;
+
 }
 
 //	---------------------------------------------------------------------------
