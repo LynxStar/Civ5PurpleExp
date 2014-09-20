@@ -67,7 +67,10 @@ void CvUnitMovement::GetCostsForMove(const CvUnit* pUnit, const CvPlot* pFromPlo
 		{
 			iRegularCost /= 2;
 		}
-	}
+	}	
+
+	if(pToPlot->HasCanal() && pUnit->getDomainType() == DOMAIN_SEA)
+		iRegularCost = 2 * iMoveDenominator;
 
 	iRegularCost = std::min(iRegularCost, (iBaseMoves * iMoveDenominator));
 

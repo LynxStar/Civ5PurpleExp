@@ -8530,7 +8530,15 @@ bool CvUnit::build(BuildTypes eBuild)
 				CvImprovementEntry *pkImprovementEntry = GC.getImprovementInfo(eImprovement);
 				if (!pkImprovementEntry || !pkImprovementEntry->IsRequiresImprovement())
 				{
-					pPlot->setImprovementType(NO_IMPROVEMENT);
+
+					if (pPlot->HasCanal() && pPlot->ContainsSeaUnit())
+					{
+						pPlot->setImprovementType(NO_IMPROVEMENT);
+						pPlot->verifyUnitValidPlot();
+					}
+					else
+						pPlot->setImprovementType(NO_IMPROVEMENT);
+
 				}
 			}
 		}
