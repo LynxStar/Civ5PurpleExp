@@ -1,0 +1,15 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="LinkDebug">
+
+  <Target Name="LinkDebug">
+    <CallTarget Targets="RenameFiles" />
+  </Target>
+
+  <Target Name="RenameFiles">
+    <Message Text="========= Renaming Files ========" />
+    <Delete Files=".\ModSource\Purple\CvGameCore_Expansion2.dll"/>
+    <Delete Files=".\ModSource\Purple\CvGameCore_Expansion2.pdb" />
+    <Copy SourceFiles=".\BuildOutput\VS2012_ModWin32\CvGameCoreDLL_Expansion2Win32Mod.dll" DestinationFiles="C:\Users\LynxStar\Documents\my games\Sid Meier's Civilization 5\MODS\Canal Mod\CvGameCore_Expansion2.dll" />
+    <Copy SourceFiles=".\BuildOutput\VS2012_ModWin32\CvGameCoreDLL_Expansion2Win32Mod.pdb" DestinationFiles="C:\Users\LynxStar\Documents\my games\Sid Meier's Civilization 5\MODS\Canal Mod\CvGameCore_Expansion2.pdb" />
+  </Target>
+  
+</Project>

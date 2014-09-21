@@ -80,8 +80,7 @@
       <ModuleDefinitionFile>$(ProjectDir)CvGameCoreDLL.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>msbuild ../ToolsHook.xml</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
