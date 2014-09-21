@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/6/2014 1:07:14 AM -->
+<GameData>
+	<Improvements>
+		<Row>
+			<Type>IMPROVEMENT_CANAL</Type>
+			<Description>TXT_KEY_IMPROVEMENT_CANAL</Description>
+			<Civilopedia>TXT_KEY_CIV5_IMPROVEMENTS_CANAL_TEXT</Civilopedia>
+			<BuildableOnResources>true</BuildableOnResources>
+			<DestroyedWhenPillaged>true</DestroyedWhenPillaged>
+			<DefenseModifier>-25</DefenseModifier>
+			<RemovesResource>true</RemovesResource>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_FORT</ArtDefineTag>
+			<PortraitIndex>24</PortraitIndex>
+			<IconAtlas>TERRAIN_ATLAS</IconAtlas>
+			<MakesSeaPassable>true</MakesSeaPassable>
+		</Row>
+	</Improvements>
+	<Improvement_Yields>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>-10</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>-10</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>-10</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>-10</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>-10</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>-10</Yield>
+		</Row>
+	</Improvement_Yields>
+	<Improvement_ValidTerrains>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<TerrainType>TERRAIN_GRASS</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<TerrainType>TERRAIN_PLAINS</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<TerrainType>TERRAIN_DESERT</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<TerrainType>TERRAIN_TUNDRA</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<TerrainType>TERRAIN_SNOW</TerrainType>
+		</Row>
+	</Improvement_ValidTerrains>
+	<Builds>
+		<Row>
+			<Type>BUILD_CANAL</Type>
+			<PrereqTech>TECH_STEAM_POWER</PrereqTech>
+			<Time>1500</Time>
+			<ImprovementType>IMPROVEMENT_CANAL</ImprovementType>
+			<Description>TXT_KEY_BUILD_CANAL</Description>
+			<Help>TXT_KEY_BUILD_CANAL_HELP</Help>
+			<Recommendation>TXT_KEY_BUILD_CANAL_REC</Recommendation>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<OrderPriority>1</OrderPriority>
+			<IconIndex>30</IconIndex>
+			<IconAtlas>UNIT_ACTION_ATLAS</IconAtlas>
+		</Row>
+	</Builds>
+	<Unit_Builds>
+		<Row>
+			<UnitType>UNIT_WORKER</UnitType>
+			<BuildType>BUILD_CANAL</BuildType>
+		</Row>
+	</Unit_Builds>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_IMPROVEMENT_CANAL">
+			<Text>Canal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_IMPROVEMENTS_CANAL_TEXT">
+			<Text>Mother fucking canals bitch</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_CANAL">
+			<Text>Construct a [LINK=IMPROVEMENT_CANAL]Canal[\LINK]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_CANAL_REC">
+			<Text>It will improve the [ICON_MOVES] Naval mobility in your nation.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_CANAL_HELP">
+			<Text>Allows naval units to [ICON_MOVES] move onto the tile. Tile produces nothing.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

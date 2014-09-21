@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/5/2014 7:15:04 PM -->
+<GameData>
+	<Units>
+		<Delete Type="UNIT_GUIDED_MISSILE" />
+	</Units>  
+</GameData>

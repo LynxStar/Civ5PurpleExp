@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/5/2014 6:17:00 PM -->
+<GameData>
+	<Units>
+		<Update>
+			<Set SpecialCargo="NULL" />
+			<Where Type="UNIT_MISSILE_CRUISER" />
+		</Update>
+		<Update>
+			<Set DomainCargo="NULL" />
+			<Where Type="UNIT_MISSILE_CRUISER" />
+		</Update>
+		<Update>
+			<Set Moves="5" />
+			<Where Type="UNIT_MISSILE_CRUISER" />
+		</Update>
+		<Update>
+			<Set Range="5" />
+			<Where Type="UNIT_MISSILE_CRUISER" />
+		</Update>
+	</Units>
+	<Unit_FreePromotions>
+		<Row>
+			<UnitType>UNIT_MISSILE_CRUISER</UnitType>
+			<PromotionType>PROMOTION_MUST_SET_UP</PromotionType>
+		</Row>
+		<Update>
+			<Set PromotionType="PROMOTION_CARGO_I" />
+			<Where UnitType="UNIT_MISSILE_CRUISER" PromotionType="PROMOTION_CARGO_III" />
+		</Update>		
+	</Unit_FreePromotions>
+</GameData>

@@ -23,3 +23,8 @@ CvGameCoreDLL.vs2012.sdf
 ipch/cvgamecoredll_expansion2.vs2012-87bd17a3/cvgamecoredll_expansion2win32mod-459453c7.ipch
 CvGameCoreDLL_Expansion2/CvGameCoreDLL_Expansion2.vs2012.vcxproj
 CvGameCoreDLL_Expansion2/CvGameCoreDLL_Expansion2.vs2012.vcxproj.user
+ModSource/Build/*
+ModSource/Purple.civ5suo
+ModSource/Purple/CvGameCore_Expansion2.dll
+ModSource/Purple/CvGameCore_Expansion2.pdb
+ModSource/Packages/*
